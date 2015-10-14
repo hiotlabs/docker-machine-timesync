@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist
+  PUBLIC '-//Apple//DTD PLIST 1.0//EN'
+  'http://www.apple.com/DTDs/PropertyList-1.0.dtd'>
 <plist version="1.0">
-<dict>
+    <dict>
         <key>Label</key>
         <string>com.hiotlabs.docker-machine.timesync</string>
 
         <key>ProgramArguments</key>
         <array>
-                <string>/usr/local/bin/docker-machine</string>
-                <string>ssh</string>
-                <string>sudo ntpclient -s -h pool.ntp.org</string>
+            <string>/usr/local/bin/docker-machine</string>
+            <string>ssh</string>
+            <string>default</string>
+            <string>sudo ntpclient -s -h pool.ntp.org</string>
         </array>
-
+        
         <key>StartInterval</key>
-        <integer>3600</integer>
-
+        <integer>600</integer>
+        
         <key>RunAtLoad</key>
         <true/>
-</dict>
+
+        <key>EnvironmentVariables</key>
+        <dict>
+            <key>PATH</key>
+            <string>$PATH:/usr/local/sbin:/usr/local/bin</string>
+        </dict>
+    </dict>
 </plist>
